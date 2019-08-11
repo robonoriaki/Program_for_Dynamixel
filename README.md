@@ -1,3 +1,5 @@
 # Program for Dynamixel
 
-In this repository, there is a program for working dynamixel using Dynamixel Library for Arduino made by BestTechnology.
+
+This repository contains a program to work dynamixel using Best Technology's
+ Dynamixel Library for Arduino.
