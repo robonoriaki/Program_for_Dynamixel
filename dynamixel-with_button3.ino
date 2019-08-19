@@ -1,4 +1,4 @@
-
+//Detects two buttons are pushed. Implemented chattering measures.
 #include <dxlib.h>
 
 DXLIB dxif (true); // select software serial
