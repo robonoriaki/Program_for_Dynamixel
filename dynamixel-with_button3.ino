@@ -73,7 +73,7 @@ void loop(){
     delay(10);  //10ms -> 0.010s
 
     if(button1State == buttonON && button2State == buttonON){
-      digitalWrite(ledPin, HIGH);
+      digitalWrite(ledPin, LOW);
     
       //Dynamixel ID is 1
       //LED address is 25
