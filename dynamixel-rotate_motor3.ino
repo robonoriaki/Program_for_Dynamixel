@@ -25,6 +25,9 @@ void MoveToGoalPosition(int ID, int GoalPosition, int MovingSpeed){
 
 void EndlessTurn(int ID, int RotateSpeed, int Direction){
   int SpeedAndDirection;
+
+  //Rotate Speed: 0(0%) ... 1023(100%)
+  //Rotate to CW -> Direction = 1024, Rotate to CCW -> Direction = 0
   SpeedAndDirection = RotateSpeed + Direction;
 
   //Moving Speed address is 32, 33
@@ -32,14 +35,11 @@ void EndlessTurn(int ID, int RotateSpeed, int Direction){
   
 }
 
-const int RotationValue = 30;
-const int ReferenceValue = 512;
-
 int ID = 1;
 int AngleLimitCW = 0;
-int AngleLimitCCW = 1023;
-int GoalPosition;
-int MovingSpeed;
+int AngleLimitCCW = 0;
+int RotateSpeed = 512;
+int RotateDirection = 0;
 
 uint8_t err;
 
@@ -56,19 +56,19 @@ void loop() {
   //LED ON -> 1
   dxif.WriteByteData (ID, 25, 1, &err);
 
-  GoalPosition = ReferenceValue + RotationValue;
+  //Rotate to CW
+  RotateDirection = 1024;
+  EndlessTurn(ID, RotateSpeed, RotateDirection);
 
-  MoveToGoalPosition(ID, GoalPosition, MovingSpeed);
-
-  delay(500);
+  delay(5000);
 
   //LED OFF -> 0
   dxif.WriteByteData (ID, 25, 0, &err);
 
-  GoalPosition = ReferenceValue - RotationValue;
+  //Rotate to CW
+  RotateDirection = 0;
+  EndlessTurn(ID, RotateSpeed, RotateDirection);
 
-  MoveToGoalPosition(ID, GoalPosition, MovingSpeed);
-
-  delay(500);
+  delay(5000);
   
 }
