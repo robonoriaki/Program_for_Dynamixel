@@ -38,8 +38,8 @@ const int ReferenceValue = 512;
 int ID = 1;
 int AngleLimitCW = 0;
 int AngleLimitCCW = 1023;
-int GoalPosition;
-int MovingSpeed;
+int GoalPosition = 0;
+int MovingSpeed = 0;
 
 uint8_t err;
 
