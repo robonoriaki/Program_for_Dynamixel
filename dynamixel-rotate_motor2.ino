@@ -60,7 +60,7 @@ void loop() {
 
   MoveToGoalPosition(ID, GoalPosition, MovingSpeed);
 
-  delay(500);
+  delay(1000);
 
   //LED OFF -> 0
   dxif.WriteByteData (ID, 25, 0, &err);
@@ -69,6 +69,6 @@ void loop() {
 
   MoveToGoalPosition(ID, GoalPosition, MovingSpeed);
 
-  delay(500);
+  delay(1000);
   
 }
